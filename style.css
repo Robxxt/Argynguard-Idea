@@ -1,0 +1,142 @@
+/* style.css */
+:root {
+    --primary-color: #2563eb; /* Brand Blue */
+    --accent-color: #1d4ed8;  /* Darker Blue for hover */
+    --bg-color: #f8fafc;      /* Light Grey background */
+    --text-color: #334155;    /* Dark Grey text */
+    --heading-color: #0f172a; /* Almost Black headings */
+    --card-bg: #ffffff;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: var(--bg-color);
+    margin: 0;
+    padding: 0;
+}
+
+/* --- Hero Section --- */
+header {
+    background: linear-gradient(135deg, #ffffff 0%, #eff6ff 100%);
+    padding: 5rem 2rem;
+    text-align: center;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+h1 { margin: 1rem 0 0.5rem; font-size: 3rem; color: var(--heading-color); }
+h2 { color: var(--heading-color); }
+.subtitle { color: #64748b; font-size: 1.25rem; margin-bottom: 2rem; }
+
+.app-icon {
+    font-size: 4rem;
+    color: var(--primary-color);
+}
+
+.btn {
+    display: inline-block;
+    background-color: var(--primary-color);
+    color: white;
+    padding: 14px 28px;
+    border-radius: 50px; /* Pill shape */
+    text-decoration: none;
+    font-weight: bold;
+    transition: all 0.2s;
+    box-shadow: 0 4px 6px -1px rgba(37, 99, 235, 0.2);
+}
+.btn:hover { background-color: var(--accent-color); transform: translateY(-2px); }
+
+/* --- Container --- */
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+}
+
+/* --- About Section (Grid) --- */
+.about-section {
+    padding: 4rem 0;
+    text-align: center;
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+    text-align: left;
+}
+
+.feature-card {
+    background: var(--card-bg);
+    padding: 2rem;
+    border-radius: 12px;
+    border: 1px solid #e2e8f0;
+}
+
+.feature-icon {
+    font-size: 2rem;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+/* --- Tutorial Section --- */
+.tutorial-section {
+    padding: 2rem 0 4rem;
+}
+
+.step-card {
+    background: var(--card-bg);
+    padding: 2.5rem;
+    margin-bottom: 2rem;
+    border-radius: 16px;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05);
+    display: flex; /* Flexbox for icon next to text */
+    gap: 1.5rem;
+    align-items: flex-start;
+}
+
+.step-icon-box {
+    background: #eff6ff;
+    color: var(--primary-color);
+    width: 50px;
+    height: 50px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    flex-shrink: 0;
+}
+
+.step-content h3 { margin-top: 0; font-size: 1.5rem; }
+
+/* --- Contact Footer --- */
+footer {
+    background: var(--heading-color);
+    color: white;
+    padding: 4rem 2rem;
+    text-align: center;
+}
+
+.contact-links {
+    margin-top: 1.5rem;
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+}
+
+.contact-link {
+    color: #94a3b8;
+    text-decoration: none;
+    font-size: 1.5rem;
+    transition: color 0.2s;
+}
+.contact-link:hover { color: white; }
+
+/* Mobile responsiveness */
+@media (max-width: 600px) {
+    .step-card { flex-direction: column; } /* Stack icon on top for phones */
+    h1 { font-size: 2rem; }
+}
