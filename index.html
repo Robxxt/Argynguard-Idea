@@ -12,8 +12,9 @@
     <header>
         <i class="fa-solid fa-layer-group app-icon"></i>
         <h1>Argrynguard</h1>
-        <p class="subtitle">We authenticate human identity in an age of AI-driven impersonation.</p>
-        <a href="#" class="btn"><i class="fa-brands fa-apple"></i> Download on App Store</a>
+        <p class="subtitle">Authenticate human identity in the age of AI-driven impersonation.</p>
+        
+        <a href="#" id="downloadBtn" class="btn"><i class="fa-brands fa-apple"></i> Download on App Store</a>
     </header>
 
     <div class="container">
@@ -50,7 +51,9 @@
                 </div>
             </div>
             
-        </section> <hr style="border: 0; border-top: 1px solid #e2e8f0; margin: 0;">
+        </section>
+
+        <hr style="border: 0; border-top: 1px solid #e2e8f0; margin: 0;">
 
         <section class="tutorial-section">
             <h2 style="text-align: center; margin-bottom: 3rem;">How to get started</h2>
@@ -61,7 +64,7 @@
                 </div>
                 <div class="step-content">
                     <h3>1. Get access to the app</h3>
-                    <p>Send me an email to <a href="mailto:argrynguard@gmail.com" style="color: #2563eb; font-weight: bold;">argrynguard@gmail.com</a> requesting a tester version.</p>
+                    <p>Send me an email to <a href="mailto:argynguard@gmail.com" style="color: #2563eb; font-weight: bold;">argynguard@gmail.com</a> requesting a tester version.</p>
                 </div>
             </div>
 
@@ -70,12 +73,8 @@
                     <i class="fa-solid fa-sliders"></i>
                 </div>
                 <div class="step-content">
-                    <h3>Setup your PINs</h3>
-                    <p>There are two types of PINs:</p>
-		    <ul>
-			    <li>Legit: In conjunction with the fingerprint/faceID is used to decrypt the secrets and access the main view.</li>
-			    <li>Destruction: It's used to remove the secrets, populate the contacts with fake secrets, remove the legit PIN and set the fake one as legit. Note that it will keep the contact metadata for plausible deniability.
-		    </ul>
+                    <h3>2. Configure settings</h3>
+                    <p>Head to the settings tab. Here you can toggle Dark Mode and set your notification preferences.</p>
                 </div>
             </div>
 
@@ -84,14 +83,16 @@
                     <i class="fa-solid fa-check-circle"></i>
                 </div>
                 <div class="step-content">
-                    <h3>3. Send feedback</h3>
-                    <p>Simply send us feedback.</p>
+                    <h3>3. Complete your first task</h3>
+                    <p>Click the big blue "+" button to add an item. Swipe right to mark it as complete!</p>
                 </div>
             </div>
 
         </section>
 
-    </div> <footer>
+    </div>
+
+    <footer>
         <h2>Need help?</h2>
         <p>Our support team is just an email away.</p>
         
@@ -105,6 +106,57 @@
         </div>
         <p style="font-size: 0.8rem; margin-top: 2rem; color: #64748b;">&copy; 2026 Argynguard. All rights reserved.</p>
     </footer>
+
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <i class="fa-solid fa-rocket modal-icon"></i>
+            <h2>Coming Soon!</h2>
+            <p>The public release isn't ready just yet, but we are accepting beta testers.</p>
+            <br>
+            <p style="color: #64748b; font-size: 0.9rem; margin-bottom: 1.5rem;">Click below to request your invite.</p>
+            <a href="mailto:argrynguard@gmail.com?subject=Beta Test Request" class="btn">Request Access</a>
+        </div>
+    </div>
+
+    <script>
+        // Get the modal
+        var modal = document.getElementById("myModal");
+
+        // Get the button that opens the modal
+        var btn = document.getElementById("downloadBtn");
+
+        // Get the <span> element that closes the modal
+        var span = document.getElementsByClassName("close-btn")[0];
+
+        // When the user clicks the button, open the modal 
+        btn.onclick = function(event) {
+            event.preventDefault(); // Prevents the link from jumping to top
+            modal.style.display = "block";
+            // Small timeout to allow the fade-in animation to trigger
+            setTimeout(() => {
+                modal.classList.add("show");
+            }, 10);
+        }
+
+        // When the user clicks on <span> (x), close the modal
+        span.onclick = function() {
+            modal.classList.remove("show");
+            setTimeout(() => {
+                modal.style.display = "none";
+            }, 300); // Wait for animation to finish
+        }
+
+        // When the user clicks anywhere outside of the modal, close it
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.classList.remove("show");
+                setTimeout(() => {
+                    modal.style.display = "none";
+                }, 300);
+            }
+        }
+    </script>
 
 </body>
 </html>

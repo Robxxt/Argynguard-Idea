@@ -1,4 +1,5 @@
-/* style.css */
+/* style.css - COMPLETE VERSION */
+
 :root {
     --primary-color: #2563eb; /* Brand Blue */
     --accent-color: #1d4ed8;  /* Darker Blue for hover */
@@ -44,6 +45,7 @@ h2 { color: var(--heading-color); }
     font-weight: bold;
     transition: all 0.2s;
     box-shadow: 0 4px 6px -1px rgba(37, 99, 235, 0.2);
+    cursor: pointer; /* Ensures it looks clickable */
 }
 .btn:hover { background-color: var(--accent-color); transform: translateY(-2px); }
 
@@ -92,7 +94,7 @@ h2 { color: var(--heading-color); }
     margin-bottom: 2rem;
     border-radius: 16px;
     box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05);
-    display: flex; /* Flexbox for icon next to text */
+    display: flex; 
     gap: 1.5rem;
     align-items: flex-start;
 }
@@ -137,6 +139,67 @@ footer {
 
 /* Mobile responsiveness */
 @media (max-width: 600px) {
-    .step-card { flex-direction: column; } /* Stack icon on top for phones */
+    .step-card { flex-direction: column; } 
     h1 { font-size: 2rem; }
+}
+
+/* --- NEW: POP-UP MODAL STYLES --- */
+.modal {
+    display: none; 
+    position: fixed; 
+    z-index: 1000; 
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto; 
+    background-color: rgba(15, 23, 42, 0.6); 
+    backdrop-filter: blur(5px); 
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.modal.show {
+    display: block;
+    opacity: 1;
+}
+
+.modal-content {
+    background-color: #ffffff;
+    margin: 15% auto; 
+    padding: 2.5rem;
+    border-radius: 16px;
+    width: 90%;
+    max-width: 450px; 
+    text-align: center;
+    position: relative;
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    transform: scale(0.9);
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.modal.show .modal-content {
+    transform: scale(1);
+}
+
+.close-btn {
+    color: #94a3b8;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    position: absolute;
+    right: 20px;
+    top: 15px;
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+.close-btn:hover {
+    color: #0f172a;
+}
+
+.modal-icon {
+    font-size: 3rem;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
 }
