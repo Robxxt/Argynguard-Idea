@@ -10,10 +10,8 @@
 <body>
 
     <header>
-        <i class="fa-solid fa-layer-group app-icon"></i>
-        <h1>Argrynguard</h1>
-        <p class="subtitle">Authenticate human identity in the age of AI-driven impersonation.</p>
-        
+        <img src="ArgynGuard.png" alt="Argynguard Logo" class="app-logo" />
+	<p class="subtitle">Authenticate human identity in the age of AI-driven impersonation.</p>
         <a href="#" id="downloadBtn" class="btn"><i class="fa-brands fa-google-play"></i> Download on App Store</a>
     </header>
 
@@ -22,9 +20,8 @@
         <section class="about-section">
             <h2>What is this app?</h2>
             
-            <div style="max-width: 700px; margin: 0 auto; line-height: 1.8;">
+            <div class="intro-text">
                 <p>Argynguard is a minimalistic, offline security tool designed to verify human identity against AI impersonation. It uses strong, standard algorithms to generate ephemeral secrets that remain strictly on your device.</p>
-                <br>
                 <p>Beyond basic encryption, the system addresses physical coercion. Under duress, it can generate <strong>decoy secrets</strong> that appear mathematically indistinguishable from authentic ones. This provides a plausible layer of defense, allowing you to maintain privacy even when forced to unlock your device.</p>
             </div>
             
@@ -53,10 +50,10 @@
             
         </section>
 
-        <hr style="border: 0; border-top: 1px solid #e2e8f0; margin: 0;">
+        <hr class="divider">
 
         <section class="tutorial-section">
-            <h2 style="text-align: center; margin-bottom: 3rem;">How to get started</h2>
+            <h2 class="section-title">How to get started</h2>
 
             <div class="step-card">
                 <div class="step-icon-box">
@@ -64,30 +61,52 @@
                 </div>
                 <div class="step-content">
                     <h3>1. Get access to the app</h3>
-                    <p>Send me an email to <a href="mailto:argrynguard@gmail.com" style="color: #2563eb; font-weight: bold;">argrynguard@gmail.com</a> requesting a tester version.</p>
+                    <p>Send me an email to <a href="mailto:argrynguard@gmail.com" class="link-highlight">argrynguard@gmail.com</a> requesting a tester version.</p>
                 </div>
             </div>
 
-	    <div class="step-card">
+            <div class="step-card">
                 <div class="step-icon-box">
                     <i class="fa-solid fa-sliders"></i>
                 </div>
                 <div class="step-content">
-                    <h3>Setup your PINs</h3>
+                    <h3>2. Setup your PINs</h3>
                     <p>There are two types of PINs:</p>
-		    <ul>
-			    <li>Legit: In conjunction with the fingerprint/faceID is used to decrypt the secrets and access the main view.</li>
-			    <li>Destruction: It's used to remove the secrets, populate the contacts with fake secrets, remove the legit PIN and set the fake one as legit. Note that it will keep the contact metadata for plausible deniability.
-		    </ul>
+                    <ul>
+                        <li><strong>Legit:</strong> In conjunction with the fingerprint/faceID is used to decrypt the secrets and access the main view.</li>
+                        <li><strong>Destruction:</strong> It's used to remove the secrets, populate the contacts with fake secrets, remove the legit PIN and set the fake one as legit. Note that it will keep the contact metadata for plausible deniability.</li>
+                    </ul>
                 </div>
             </div>
 
-	    <div class="step-card">
+            <div class="step-card">
+                <div class="step-icon-box">
+                    <i class="fa-solid fa-qrcode"></i>
+                </div>
+                <div class="step-content">
+                    <h3>3. Add contacts</h3>
+                    <p>Either using QR codes or clipboard.</p>
+                    <p>Now you can start communicating safely.</p>
+                </div>
+            </div>
+
+            <div class="step-card">
+                <div class="step-icon-box">
+                    <i class="fa-solid fa-bomb"></i>
+                </div>
+                <div class="step-content">
+                    <h3>4. Test the destruction PIN</h3>
+                    <p>Play around and try to find a way to restore the secrets.</p>
+                </div>
+            </div>
+
+
+            <div class="step-card">
                 <div class="step-icon-box">
                     <i class="fa-solid fa-check-circle"></i>
                 </div>
                 <div class="step-content">
-                    <h3>3. Send feedback</h3>
+                    <h3>5. Send feedback</h3>
                     <p>Simply send us feedback.</p>
                 </div>
             </div>
@@ -107,7 +126,7 @@
                 <i class="fa-brands fa-linkedin"></i>
             </a>
         </div>
-        <p style="font-size: 0.8rem; margin-top: 2rem; color: #64748b;">&copy; 2026 Argynguard. All rights reserved.</p>
+        <p class="copyright">&copy; 2026 Argynguard. All rights reserved.</p>
     </footer>
 
     <div id="myModal" class="modal">
@@ -117,7 +136,7 @@
             <h2>Coming Soon!</h2>
             <p>The public release isn't ready just yet, but we are accepting beta testers.</p>
             <br>
-            <p style="color: #64748b; font-size: 0.9rem; margin-bottom: 1.5rem;">Click below to request your invite.</p>
+            <p class="modal-subtext">Click below to request your invite.</p>
             <a href="mailto:argrynguard@gmail.com?subject=Beta Test Request" class="btn">Request Access</a>
         </div>
     </div>
@@ -125,32 +144,24 @@
     <script>
         // Get the modal
         var modal = document.getElementById("myModal");
-
-        // Get the button that opens the modal
         var btn = document.getElementById("downloadBtn");
-
-        // Get the <span> element that closes the modal
         var span = document.getElementsByClassName("close-btn")[0];
 
-        // When the user clicks the button, open the modal 
         btn.onclick = function(event) {
-            event.preventDefault(); // Prevents the link from jumping to top
-            modal.style.display = "block";
-            // Small timeout to allow the fade-in animation to trigger
+            event.preventDefault();
+            modal.style.display = "flex"; // Changed to flex for centering
             setTimeout(() => {
                 modal.classList.add("show");
             }, 10);
         }
 
-        // When the user clicks on <span> (x), close the modal
         span.onclick = function() {
             modal.classList.remove("show");
             setTimeout(() => {
                 modal.style.display = "none";
-            }, 300); // Wait for animation to finish
+            }, 300);
         }
 
-        // When the user clicks anywhere outside of the modal, close it
         window.onclick = function(event) {
             if (event.target == modal) {
                 modal.classList.remove("show");

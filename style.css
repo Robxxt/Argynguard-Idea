@@ -1,80 +1,114 @@
-/* style.css - COMPLETE VERSION */
-
 :root {
-    --primary-color: #2563eb; /* Brand Blue */
-    --accent-color: #1d4ed8;  /* Darker Blue for hover */
-    --bg-color: #f8fafc;      /* Light Grey background */
-    --text-color: #334155;    /* Dark Grey text */
-    --heading-color: #0f172a; /* Almost Black headings */
+    --primary-color: #2563eb;
+    --accent-color: #1d4ed8;
+    --bg-color: #f8fafc;
+    --text-color: #475569; /* Slightly softer than black */
+    --heading-color: #0f172a;
     --card-bg: #ffffff;
+    --border-color: #e2e8f0;
 }
 
 body {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-    line-height: 1.6;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    line-height: 1.7;
     color: var(--text-color);
     background-color: var(--bg-color);
     margin: 0;
     padding: 0;
+    -webkit-font-smoothing: antialiased;
 }
 
 /* --- Hero Section --- */
 header {
-    background: linear-gradient(135deg, #ffffff 0%, #eff6ff 100%);
-    padding: 5rem 2rem;
-    text-align: center;
-    border-bottom: 1px solid #e2e8f0;
+    background: linear-gradient(180deg, #ffffff 0%, #f1f5f9 100%);
+    padding: 4rem 2rem 5rem 2rem;
+    border-bottom: 1px solid var(--border-color);
+    
+    /* Flexbox handles the centering and stacking of Logo + Button */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
-h1 { margin: 1rem 0 0.5rem; font-size: 3rem; color: var(--heading-color); }
-h2 { color: var(--heading-color); }
 .subtitle { color: #64748b; font-size: 1.25rem; margin-bottom: 2rem; }
 
-.app-icon {
-    font-size: 4rem;
-    color: var(--primary-color);
+/* This handles the Logo size and spacing */
+.app-logo {
+    max-width: 180px; /* Adjust this to change logo size */
+    height: auto;
+    margin-bottom: 2.5rem; /* Space between logo and button */
+    display: block;
 }
 
 .btn {
     display: inline-block;
     background-color: var(--primary-color);
     color: white;
-    padding: 14px 28px;
-    border-radius: 50px; /* Pill shape */
+    padding: 16px 32px;
+    border-radius: 50px;
     text-decoration: none;
-    font-weight: bold;
-    transition: all 0.2s;
-    box-shadow: 0 4px 6px -1px rgba(37, 99, 235, 0.2);
-    cursor: pointer; /* Ensures it looks clickable */
+    font-weight: 600;
+    font-size: 1.1rem;
+    transition: all 0.2s ease;
+    box-shadow: 0 4px 6px -1px rgba(37, 99, 235, 0.3);
+    border: 2px solid transparent;
 }
-.btn:hover { background-color: var(--accent-color); transform: translateY(-2px); }
+
+.btn:hover {
+    background-color: var(--accent-color);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 15px -3px rgba(37, 99, 235, 0.4);
+}
 
 /* --- Container --- */
 .container {
-    max-width: 900px;
+    max-width: 800px; /* Slightly tighter width for better reading */
     margin: 0 auto;
     padding: 0 1.5rem;
 }
 
-/* --- About Section (Grid) --- */
+/* --- About Section --- */
 .about-section {
-    padding: 4rem 0;
+    padding: 5rem 0;
     text-align: center;
+}
+
+.about-section h2 {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    color: var(--heading-color);
+}
+
+.intro-text {
+    max-width: 650px;
+    margin: 0 auto;
+    font-size: 1.1rem;
+}
+
+.intro-text p {
+    margin-bottom: 1.5rem;
 }
 
 .features-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 2rem;
-    margin-top: 3rem;
+    margin-top: 4rem;
     text-align: left;
 }
 
 .feature-card {
     background: var(--card-bg);
     padding: 2rem;
-    border-radius: 12px;
-    border: 1px solid #e2e8f0;
+    border-radius: 16px;
+    border: 1px solid var(--border-color);
+    transition: transform 0.2s ease;
+}
+
+.feature-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05);
 }
 
 .feature-icon {
@@ -83,47 +117,97 @@ h2 { color: var(--heading-color); }
     margin-bottom: 1rem;
 }
 
+.feature-card h3 {
+    color: var(--heading-color);
+    margin: 0.5rem 0;
+}
+
+/* --- Divider --- */
+.divider {
+    border: 0;
+    border-top: 1px solid var(--border-color);
+    margin: 0;
+}
+
 /* --- Tutorial Section --- */
 .tutorial-section {
-    padding: 2rem 0 4rem;
+    padding: 4rem 0 6rem;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 3rem;
+    font-size: 2rem;
+    color: var(--heading-color);
 }
 
 .step-card {
     background: var(--card-bg);
     padding: 2.5rem;
     margin-bottom: 2rem;
-    border-radius: 16px;
-    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05);
+    border-radius: 20px;
+    border: 1px solid var(--border-color);
+    /* box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.02); */
     display: flex; 
-    gap: 1.5rem;
+    gap: 2rem;
     align-items: flex-start;
 }
 
 .step-icon-box {
     background: #eff6ff;
     color: var(--primary-color);
-    width: 50px;
-    height: 50px;
-    border-radius: 12px;
+    width: 60px;
+    height: 60px;
+    border-radius: 16px;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 1.2rem;
-    flex-shrink: 0;
+    font-size: 1.5rem;
+    flex-shrink: 0; /* Prevents icon from squishing */
 }
 
-.step-content h3 { margin-top: 0; font-size: 1.5rem; }
+.step-content h3 {
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+    font-size: 1.4rem;
+    color: var(--heading-color);
+}
 
-/* --- Contact Footer --- */
+/* List styling inside steps */
+.step-content ul {
+    padding-left: 1.2rem;
+    margin-top: 1rem;
+}
+
+.step-content li {
+    margin-bottom: 0.5rem;
+}
+
+.link-highlight {
+    color: var(--primary-color);
+    font-weight: 600;
+    text-decoration: none;
+}
+.link-highlight:hover {
+    text-decoration: underline;
+}
+
+/* --- Footer --- */
 footer {
     background: var(--heading-color);
     color: white;
-    padding: 4rem 2rem;
+    padding: 5rem 2rem;
     text-align: center;
 }
 
+footer h2 {
+    color: white;
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
 .contact-links {
-    margin-top: 1.5rem;
+    margin-top: 2rem;
     display: flex;
     justify-content: center;
     gap: 2rem;
@@ -131,19 +215,31 @@ footer {
 
 .contact-link {
     color: #94a3b8;
+    background: rgba(255,255,255,0.1);
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     text-decoration: none;
-    font-size: 1.5rem;
-    transition: color 0.2s;
-}
-.contact-link:hover { color: white; }
-
-/* Mobile responsiveness */
-@media (max-width: 600px) {
-    .step-card { flex-direction: column; } 
-    h1 { font-size: 2rem; }
+    font-size: 1.2rem;
+    transition: all 0.2s;
 }
 
-/* --- NEW: POP-UP MODAL STYLES --- */
+.contact-link:hover { 
+    color: white; 
+    background: var(--primary-color);
+    transform: scale(1.1);
+}
+
+.copyright {
+    font-size: 0.9rem;
+    margin-top: 3rem;
+    color: #64748b;
+}
+
+/* --- Modal --- */
 .modal {
     display: none; 
     position: fixed; 
@@ -152,30 +248,30 @@ footer {
     top: 0;
     width: 100%;
     height: 100%;
-    overflow: auto; 
-    background-color: rgba(15, 23, 42, 0.6); 
-    backdrop-filter: blur(5px); 
+    overflow: hidden; 
+    background-color: rgba(15, 23, 42, 0.7); 
+    backdrop-filter: blur(8px); 
     opacity: 0;
     transition: opacity 0.3s ease;
+    align-items: center; /* Vertical Center */
+    justify-content: center; /* Horizontal Center */
 }
 
 .modal.show {
-    display: block;
     opacity: 1;
 }
 
 .modal-content {
     background-color: #ffffff;
-    margin: 15% auto; 
-    padding: 2.5rem;
-    border-radius: 16px;
+    padding: 3rem;
+    border-radius: 24px;
     width: 90%;
-    max-width: 450px; 
+    max-width: 500px; 
     text-align: center;
     position: relative;
-    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-    transform: scale(0.9);
-    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    transform: scale(0.95);
+    transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
 .modal.show .modal-content {
@@ -184,14 +280,13 @@ footer {
 
 .close-btn {
     color: #94a3b8;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
     position: absolute;
-    right: 20px;
-    top: 15px;
+    right: 25px;
+    top: 20px;
+    font-size: 24px;
     cursor: pointer;
     transition: color 0.2s;
+    padding: 5px;
 }
 
 .close-btn:hover {
@@ -199,7 +294,45 @@ footer {
 }
 
 .modal-icon {
-    font-size: 3rem;
+    font-size: 3.5rem;
     color: var(--primary-color);
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.modal-subtext {
+    color: #64748b; 
+    font-size: 0.95rem; 
+    margin-bottom: 2rem;
+}
+
+/* --- Mobile Responsiveness --- */
+@media (max-width: 768px) {
+    header {
+        padding: 3rem 1.5rem;
+    }
+    
+    .app-logo {
+        max-width: 140px; /* Smaller logo on mobile */
+    }
+
+    .about-section h2 {
+        font-size: 2rem;
+    }
+
+    .step-card { 
+        flex-direction: column; 
+        gap: 1.5rem;
+        padding: 2rem;
+    } 
+
+    .step-icon-box {
+        width: 50px;
+        height: 50px;
+        font-size: 1.2rem;
+    }
+
+    .modal-content {
+        padding: 2rem;
+        width: 85%;
+    }
 }
